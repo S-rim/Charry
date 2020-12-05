@@ -1,16 +1,17 @@
 import axios from "axios";
+import { url } from "../constant/index";
 
 export const client = axios.create({
-  baseURL: process.env.VUE_APP_API_URL,
+  baseURL: url,
   headers: {
-    "Content-Type": "application/json"
-  }
+    "Content-Type": "application/json",
+  },
 });
 
 export const getClientAccessToken = axios.create({
-  baseURL: process.env.VUE_APP_API_URL,
+  baseURL: url,
   headers: {
     "Content-Type": "application/json",
-    Authorization: `Bearer ${localStorage.getItem("accessToken")}`
-  }
+    Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+  },
 });
