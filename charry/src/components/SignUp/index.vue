@@ -1,13 +1,13 @@
 <template>
-  <div>signup</div>
+  <div class="auth-container">
+    <sign-up />
+    <side-view />
+  </div>
 </template>
 
 <script>
+import { SignUp, SideView } from "./index";
 export default {
-
-}
+  components: { "sign-up": SignUp, "side-view" : SideView },
+};
 </script>
-
-<style lang="scss" scoped>
-
-</style>
