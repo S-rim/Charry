@@ -1,13 +1,15 @@
 <template>
-  <div></div>
+  <div>
+      <side-view />
+  </div>
 </template>
 
 <script>
+import SideView from "./SideView.vue";
 export default {
-
-}
+  components: { "side-view" : SideView },
+};
 </script>
 
 <style lang="scss" scoped>
-
 </style>
