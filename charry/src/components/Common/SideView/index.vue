@@ -10,6 +10,3 @@ export default {
   components: { "side-view" : SideView },
 };
 </script>
-
-<style lang="scss" scoped>
-</style>
