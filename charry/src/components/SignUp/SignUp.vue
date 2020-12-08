@@ -49,10 +49,10 @@ export default {
   methods: {
     onSignUp() {
       register(this.email, this.password, this.nickname)
-        .then((res) => {
+        .then(() => {
           this.$router.push("/")
         })
-        .catch((err) => {
+        .catch(() => {
           alert("회원가입에 실패했습니다. 다시 시도하세요.");
         });
     },
