@@ -1,27 +1,53 @@
 <template>
   <div>
-    <MessageList />
-    <MessageForm />
+    <message-list :msgs="msgDatas" />
+    <message-form @onSubmitMessage="sendMessage" />
   </div>
 </template>
 
 <script>
-import MessageList from "../Main/MessageList";
-import MessageForm from "../Main/MessageForm";
+import { mapMutations, mapState } from "vuex";
+import { MessageForm, MessageList } from "../Main";
+import Constant from "../../constant/index";
 
 export default {
   name: "ChatRoom",
-  components: { MessageList, MessageForm },
   data() {
     return {
-      messageData: []
+      datas: [],
     };
-  }
+  },
+  components: {
+    "message-list": MessageList,
+    "message-form": MessageForm,
+  },
+  computed: {
+    ...mapState({
+      msgDatas: (state) => state.msgDatas,
+    }),
+  },
+  methods: {
+    ...mapMutations({
+      pushMsgData: Constant.PUSH_MSG_DATA,
+    }),
+    sendMessage(msg) {
+      this.pushMsgData({
+        from: {
+          name: this.$route.params.username,
+        },
+        msg,
+      });
+      this.$sendMessage({
+        name: this.$route.params.username,
+        msg,
+      });
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
 div {
-  display: flex;
+  z-index: 1;
 }
 </style>
