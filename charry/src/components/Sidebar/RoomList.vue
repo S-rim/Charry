@@ -1,5 +1,5 @@
 <template>
-  <aside class="roomListContainer">
+  <aside class="room-list-container">
     <div :key="data.id" v-for="data in roomdata">
       <ChatListItem v-bind:data="{ data }" @onSocketJoinRoom="onIsJoin"/>
     </div>
@@ -37,13 +37,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.roomListContainer {
+.room-list-container {
   float: right;
   width: 15%;
   position: absolute;
-  top: 10%;
+  top: 7%;
   right: 0;
-  z-index: 1;
+  z-index: 0;
+  height: 100vh;
   border-left: 1px solid #70707033;
 }
 </style>
