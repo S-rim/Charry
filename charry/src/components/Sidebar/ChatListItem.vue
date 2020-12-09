@@ -38,7 +38,6 @@ export default {
       this.$socket.emit("join", this.data.data.id);
       this.isJoin = true;
       this.$emit("onSocketJoinRoom", this.isJoin);
-
       getRoomTitle(this.data.data.id)
       .then((res) => {
           this.$emit("onSocketJoinRoom", res.data.title);
