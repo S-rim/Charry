@@ -52,7 +52,7 @@ export default {
         .then((res) => {
           localStorage.setItem("accessToken", res.data.accessToken);
           localStorage.setItem("refreshToken", res.data.refreshToken);
-          this.$router.push(`/chat-room/${this.nickname}`);
+          this.$router.push(`/chat-room/none/${this.nickname}`);
         })
         .catch(() => {
           alert("로그인에 실패하였습니다. 다시 시도하세요.");
