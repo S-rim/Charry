@@ -17,10 +17,10 @@ export default new Router({
       component: SignUp,
     },
     {
-      path: "/chat-room",
-      name: "ChatRoom",
-      component: ChatRoom,
-    },
+        path: "/chat-room/:roomid/:username/",
+        name: "ChatRoom",
+        component: ChatRoom,
+      },
     {
         path : "/add-room",
         name : "AddRoom",

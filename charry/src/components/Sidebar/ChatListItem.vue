@@ -31,17 +31,19 @@ export default {
           alert("방 삭제가 완료되었습니다.");
         })
         .catch(() => {
-           alert("방 삭제에 실패했습니다. 다시 시도하세요.");
+          alert("방 삭제에 실패했습니다. 다시 시도하세요.");
         });
     },
     onSocketJoinRoom() {
       this.$socket.emit("join", this.data.data.id);
       this.isJoin = true;
       this.$emit("onSocketJoinRoom", this.isJoin);
-      getRoomTitle(this.data.data.id)
-      .then((res) => {
-          this.$emit("onSocketJoinRoom", res.data.title);
-      })
+      getRoomTitle(this.data.data.id).then((res) => {
+        this.$emit("onSocketJoinRoom", res.data.title);
+        this.$router.push(
+          `/chat-room/${this.data.data.id}/${this.$route.params.username}`
+        );
+      });
     },
   },
 };
