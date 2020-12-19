@@ -27,3 +27,7 @@ export const leaveRoom = (roomId) => {
 export const getRoomTitle = (roomId) => {
   return getClientAccessToken.get(`/chat/room/title/${roomId}`);
 };
+
+export const getChat = (roomId, page) => {
+  return getClientAccessToken.get(`/chat?id=${roomId}&page=${page}`);
+};
