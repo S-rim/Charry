@@ -3,7 +3,7 @@
     <Sidebar @inGetRoom="onGetChatRoom" />
     <div class="rightContainer">
       <div>
-        <Header @onGetRoom="onShowRoomList" />
+        <Header @onGetRoom="onShowRoomList" @onSocketLeaveRoom="onGetChatRoom"/>
       </div>
       <div class="mainContainer">
         <AddRoom v-if="isJoin" />
@@ -44,15 +44,12 @@ export default {
   methods: {
     onGetChatRoom(data) {
       this.isJoin = data;
-      console.log(data);
     },
     onShowRoom(data) {
       this.isJoin = data;
-      console.log(data);
     },
     onShowRoomList(data) {
       this.isShowList = data;
-      console.log(this.isShowList);
     },
   },
 };
